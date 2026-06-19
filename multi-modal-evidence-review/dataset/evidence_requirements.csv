@@ -1,9 +1,0 @@
-requirement_id,claim_object,applies_to,minimum_image_evidence
-req_car_dent,car,dent or scratch,Close-up showing dent or scratch with surrounding body panel context
-req_car_glass,car,glass shatter,Clear image of windshield or glass with shatter pattern visible
-req_laptop_screen,laptop,crack,Screen image showing crack pattern; lid open if possible
-req_laptop_body,laptop,dent or scratch,Close-up of laptop body damage with corner or lid visible
-req_pkg_torn,package,torn packaging,Image showing torn outer packaging and seal area
-req_pkg_crush,package,crushed packaging,Multiple angles showing crushed box corners and contents if opened
-req_pkg_water,package,water damage,Stains or warping on box; label and contents if wet
-req_all_blurry,all,dent or scratch,At least one clear close-up where damage is readable
