@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evidence Review Desk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-mark">EVD</div>
+    <div class="topbar-text">
+      <h1>Evidence Review Desk</h1>
+      <p>Upload claim photos &amp; description — the model decides if the evidence holds up.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel form-panel">
+      <h2>01 · Submit a claim</h2>
+      <form id="claim-form">
+        <label>
+          Object type
+          <select name="claim_object" id="claim_object">
+            <option value="car">Car</option>
+            <option value="laptop">Laptop</option>
+            <option value="package">Package</option>
+          </select>
+        </label>
+
+        <label>
+          User ID
+          <input type="text" name="user_id" id="user_id" value="web_user_001" />
+        </label>
+
+        <label>
+          Claim description
+          <textarea name="user_claim" id="user_claim" rows="4"
+            placeholder="e.g. The front bumper got a deep dent after another car backed into it in the parking lot."></textarea>
+        </label>
+
+        <label class="file-label">
+          Evidence photos
+          <input type="file" name="images" id="images" accept=".jpg,.jpeg,.png,.webp" multiple />
+        </label>
+        <div id="file-list" class="file-list"></div>
+
+        <label class="checkbox-row">
+          <input type="checkbox" id="mock_mode" name="mock_mode" checked />
+          Mock mode (no OpenAI API key required)
+        </label>
+
+        <button type="submit" id="submit-btn">Run review</button>
+        <p id="form-error" class="error"></p>
+      </form>
+    </section>
+
+    <section class="panel result-panel">
+      <h2>02 · Verdict</h2>
+      <div id="loading" class="loading hidden">Analyzing evidence…</div>
+      <div id="empty-state" class="empty-state">
+        Submit a claim to see the model's evidence-grounded decision here.
+      </div>
+      <div id="result" class="result hidden"></div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
